@@ -51,12 +51,27 @@ static char	*freedom(char *line, char *box)
 	return (line);
 }
 
+static int	check_bytes(int bytes, char *line)
+{
+	int	flag;
+
+	flag = 0;
+	if (bytes <= 0 && !(*line))
+	{
+		free(line);
+		flag = 1;
+	}
+	return (flag);
+}
+
 char	*get_next_line(int fd)
 {
 	int			bytes;
 	static char	box[FD_MAX][BUFFER_SIZE + 1];
 	char		*line;
 
+	if (fd < 0 || fd > FD_MAX || BUFFER_SIZE < 1)
+		return (NULL);
 	line = (char *)ft_calloc(1, sizeof(*line));
 	while (!(ft_strchr(box[fd], '\n')))
 	{
@@ -64,11 +79,8 @@ char	*get_next_line(int fd)
 			line = freedom(line, box[fd]);
 		bytes = read(fd, box[fd], BUFFER_SIZE);
 		box[fd][bytes] = '\0';
-		if (bytes <= 0 && !(*line))
-		{
-			free(line);
+		if (check_bytes(bytes, line))
 			return (NULL);
-		}
 		if (bytes < BUFFER_SIZE && !ft_strchr(box[fd], '\n'))
 		{
 			line = freedom(line, box[fd]);
