@@ -1,3 +1,5 @@
+THEORY
+
 What is a VM?
 	A virtual machine is a computer file, typically called an image, that behaves like 	an actual computer.
 	It can run in a window as a separate computing environment.
@@ -5,8 +7,6 @@ What is a VM?
 	from the same piece of hardware.
 	VMs are often thought of as virtual computers or software-defined computers 
 	within physical servers, existing only as code.
-
-
 
 CentOS vs Debian:
 	CentOS is a linux distro / Debian is UNIX like operating system
@@ -42,31 +42,56 @@ AppArmor:
 	AppArmor security policies completely define what system resources individual 		applications can access, and with what privileges.
 	A number of default policies are included with AppArmor, and using a combination  	of advanced static analysis and learning-based tools, AppArmor policies for even 	very complex applications can be deployed successfully in a matter of hours.
 
+Linux-PAM:
+	Linux Pluggable Authentication Modules (PAM) is a suite of libraries that allows a 	Linux system administrator to configure methods to authenticate users.
+
+Libpam-pwquality:
+	Libpwquality's purpose is to provide common functions for password quality 		checking and also scoring them based on their apparent randomness.
+
+IMPLEMENTATION
+
+*.vdi
+	After u finish the project, take a snapshot of the last state of ur machine.
+	Then hash it:
+	MacOs: shasum <VMname>.vdi > signature.txt
+	Linux: sha1sum <VMname>.vdi > signature.txt
+	Each time u finish an eval, return to previous state(snapshot).
 
 Check for GUI:
 	ls /usr/bin/*session
 expected:
 	/usr/bin/dbus-run-session
 
+App-Armor:
+	sudo aa-status ==> check
+
 Add user:
 	(sudo) adduser <username> sudo
 	(sudo) addgroup <groupname>
 	(sudo) adduser <username> <group>
-	
+	(sudo) gpasswd -d <username> <group>	} delete
+	(sudo) groudel <group>			} delete
+
+Hostname:
+	hostname
+	(sudo) vim /etc/hostname
+	(sudo) vim /etc/hosts
 SSH:
 	sudo apt install openssh-server
 	sudo vim /etc/ssh/sshd_config
 		Port ==> 4242 
 		RootPermitLogin ==> no
-	Status Check:
+	status Check:
 		sudo service ssh status
 UFW:
 	(sudo) apt install ufw
 	(sudo) ufw enable
 	(sudo) ufw allow <port>
+	(sudo) ufw delete allow <port>
 	(sudo) ufw status
 
 SUDO_CONFIG:
+	dpkg -l sudo ==> check if exists
 	create file ==> /etc/sudoers.d/
 	(sudo) mkdir /car/logo/sudo
 	(sudo) vim /etc/sudoers.d/<file_name>
@@ -88,11 +113,6 @@ PASSWD_POLICY:
 	
 	(sudo) apt install libpam-pwquality
 	(sudo) vim /etc/pam.d/common-password
-	find : password requisite paw_pwquality.so 
-	then : retry=3 minlen=10 ucredit=-1 dcredit=-1 maxrepeat=3\
-	reject_username difok=7 enforce_for_root
+	find : password requisite pam_pwquality.so 
+	then : retry=3 minlen=10 ucredit=-1 maxrepeat=3 difok=7 enforce_for_root
 
-
-
-
-NOTES: libwam-Requiretty
