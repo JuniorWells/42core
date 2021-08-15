@@ -60,16 +60,3 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (chars_pr);
 }
-
-// int main(void)
-// {
-//     // char *str = "mykonos";
-// 	int i;
-// 	unsigned long l = 1928123;
-//     // printf("%d\n", printf("mykonos"));
-// 	i = ft_printf("%x\n", l);
-// 	i = ft_printf("%x\n", l);
-// 	ft_printf("%d\n", i);
-// 	printf("%d\n", i);
-//     return (0);
-// }

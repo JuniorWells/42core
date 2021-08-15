@@ -28,6 +28,12 @@ int	if_str(va_list args)
 	int		ret;
 
 	str = va_arg(args, char *);
+	if (str == NULL)
+	{
+		write(1, "(null)", 6);
+		ret = 6;
+		return (ret);
+	}
 	ret = ft_strlen(str);
 	write(1, str, ret);
 	return (ret);
