@@ -1,7 +1,7 @@
 NAME = libftprintf.a
 HEADER = ft_printf.h
 CC = gcc
-FLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 SRCS = $(addsuffix .c, ft_printf conversions extra_func more_conv)
 OBJS := $(SRCS:%.c=%.o)
 AR = ar rc
