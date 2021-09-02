@@ -36,7 +36,7 @@ static char	*set_stuff(char *line, char *box)
 	ptr = ft_strchr(box, '\n');
 	while (ptr[len])
 		len++;
-	box = ft_memmove(box, ++ptr, len);
+	ft_memmove(box, ++ptr, len);
 	ft_bzero(box + len, 1);
 	return (line);
 }
@@ -60,7 +60,7 @@ char	*get_next_line(int fd)
 	line = (char *)ft_calloc(1, sizeof(*line));
 	while (!(ft_strchr(box, '\n')))
 	{
-		if (box[0])
+		if (*box)
 			line = freedom(line, box);
 		bytes = read(fd, box, BUFFER_SIZE);
 		box[bytes] = '\0';
