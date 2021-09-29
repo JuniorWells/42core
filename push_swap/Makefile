@@ -7,7 +7,7 @@ LIB_PATH = ./libft
 LIBRARY = libft.a
 MAKE = make
 
-SRCS = $(addsuffix .c, main error_check pass_args rotates swaps_and_pushes rev_rotates little_sorts)
+SRCS = $(addsuffix .c, main error_check pass_args rotates swaps_and_pushes rev_rotates little_sorts big_sort)
 OBJS = ${SRCS:.c=.o}
 
 all: $(NAME)
@@ -30,3 +30,5 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re push $(LIBRARY)

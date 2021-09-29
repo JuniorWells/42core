@@ -6,7 +6,7 @@
 /*   By: kchaniot <kchaniot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 16:31:41 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/09/28 23:16:41 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/09/29 14:45:23 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	more_than_digits(int argc, char **argv)
 int	error_there(int argc, char **argv)
 {
 	if (argc < 3)
-		return (1);
+		exit(-1);
 	else if (has_duplicates(argc, argv))
 		return (1);
 	else if (more_than_int(argc, argv))

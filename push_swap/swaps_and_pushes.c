@@ -6,7 +6,7 @@
 /*   By: kchaniot <kchaniot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 16:08:15 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/09/28 23:04:36 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/09/29 14:50:13 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	swap_both(int *arr1, int *arr2)
 void	push_a(int *dest, int *src, int *len_dest, int *len_src)
 {
 	int	i;
-	int len;
+	int	len;
 
 	i = 0;
 	len = *len_dest;
@@ -72,7 +72,7 @@ void	push_a(int *dest, int *src, int *len_dest, int *len_src)
 void	push_b(int *dest, int *src, int *len_dest, int *len_src)
 {
 	int	i;
-	int len;
+	int	len;
 
 	i = 0;
 	len = *len_dest;

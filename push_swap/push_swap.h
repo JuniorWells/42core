@@ -6,7 +6,7 @@
 /*   By: kchaniot <kchaniot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 13:33:22 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/09/28 20:58:13 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/09/29 15:07:30 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int		*pass_arguments(int argc, char **argv);
 int		*initial_sort(int *array, int len);
 int		*transmute(int *unsorted, int *sorted, int len);
 int		is_sorted(int *arr, int len);
+void	choices(int *stack_a, int length);
 void	swap_a(int *arr);
 void	swap_b(int *arr);
 void	swap_both(int *arr1, int *arr2);
@@ -38,9 +39,12 @@ void	rotate_both(int *arr1, int *arr2, int len1, int len2);
 void	rev_rotate_a(int *arr, int len);
 void	rev_rotate_b(int *arr, int len);
 void	rev_rotate_both(int *arr1, int *arr2, int len1, int len2);
+int		find_min(int *arr, int len);
 void	sort_2(int *arr, int len);
 void	sort_3(int *arr, int len);
+void	sort_4(int *arr, int len);
+void	sort_5(int *arr, int len);
 void	sort_big(int *arr_a, int len_a);
-void	the_final_sort(int *stack_a, int *stack_b, int len_a, int len_b, int max_bits);
+void	the_final_sort(int *stack_a, int *stack_b, int len_a, int max_bits);
 
 #endif

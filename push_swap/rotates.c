@@ -6,7 +6,7 @@
 /*   By: kchaniot <kchaniot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 15:59:33 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/09/28 15:59:49 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/09/29 14:43:45 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,18 @@ void	rotate_both(int *arr1, int *arr2, int len1, int len2)
 int	is_sorted(int *arr, int len)
 {
 	int	i;
+	int	ret;
 
 	i = 0;
+	ret = 1;
 	while (i < len - 1)
 	{
-		if (!(arr[i] > arr[i + 1]))
-			return (0);
+		if (arr[i] > arr[i + 1])
+		{
+			ret = 0;
+			break ;
+		}
 		i++;
 	}
-	return (1);
+	return (ret);
 }

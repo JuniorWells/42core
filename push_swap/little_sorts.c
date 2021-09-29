@@ -6,7 +6,7 @@
 /*   By: kchaniot <kchaniot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 16:33:25 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/09/28 23:37:22 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/09/29 15:09:51 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	sort_3(int *arr, int len)
 		rotate_a(arr, len);
 		swap_a(arr);
 	}
-	else if (arr[0] > arr[1] && arr[0] > arr[1] && arr[1] < arr[2])
+	else if (arr[0] > arr[1] && arr[0] > arr[2] && arr[1] < arr[2])
 		rotate_a(arr, len);
 	else if (arr[0] > arr[1] && arr[0] < arr[2])
 		swap_a(arr);
@@ -43,73 +43,42 @@ void	sort_3(int *arr, int len)
 		exit(-1);
 }
 
-void	sort_big(int *arr_a, int len_a)
+void	sort_4(int *arr, int len)
 {
-	int	*arr_b;
-	int	len_b;
-	int	max_index;
-	int	max_bits;
-	
-	//int i;
-	
-	len_b = 0;
-	max_bits = 0;
-	arr_b = (int *)malloc(len_a * sizeof(int));
-	max_index = len_a - 1;
-	while (max_index >> max_bits)
-		++max_bits;
-	//for (i = 0; i < len_a; i++)
-	//	printf("%d ", arr_a[i]);
-	//printf("\n");
-	the_final_sort(arr_a, arr_b, len_a, len_b, max_bits);
-	//printf("\n");
-	//for (i = 0; i < len_a; i++)
-	//	printf("%d ", arr_a[i]);
+	int	min;
+	int	*arr2;
+	int	len2;
 
-	free(arr_b);
-	free(arr_a);
+	arr2 = (int *)malloc(sizeof(int));
+	if (!arr2)
+		return ;
+	len2 = 0;
+	min = find_min(arr, len);
+	while (*arr != min)
+		rotate_a(arr, len);
+	push_b(arr2, arr, &len2, &len);
+	sort_3(arr, len);
+	push_a(arr, arr2, &len, &len2);
+	free(arr2);
 }
 
-void	the_final_sort(int *stack_a, int *stack_b, int len_a, int len_b, int max_bits)
+void	sort_5(int *arr, int len)
 {
-	int i;
-	int j;
-	int size;
+	int	min;
+	int	*arr2;
+	int	len2;
 
-	size = len_a;
-	i = 0;
-	while (i < max_bits)
-	{
-		j = 0;
-		while (j < size)
-		{
-			if (((*stack_a >> i)&1) == 1)
-			{
-				//printf("*stack_a: %d", *stack_a);
-				//printf("*stack_b: %d\n", *stack_b);
-				rotate_a(stack_a, len_a);
-				//printf("RA:*stack_a: %d", *stack_a);
-				//printf("*stack_b: %d\n\n", *stack_b);
-			}
-			else
-			{
-				//printf("*stack_a: %d", *stack_a);
-				//printf("*stack_b: %d\n", *stack_b);
-				push_b(stack_b, stack_a, &len_b, &len_a);
-				//printf("PB:*stack_a: %d", *stack_a);
-				//printf("*stack_b: %d\n\n", *stack_b);
-			}
-			//printf("lenb: %d, lena: %d, j: %d\n\n\n", len_b, len_a, j);
-			++j;
-		}
-		while (len_b > 0)
-		{
-			//printf("*stack_a: %d", *stack_a);
-			//printf("*stack_b: %d\n", *stack_b);
-			push_a(stack_a, stack_b, &len_a, &len_b);
-			//printf("PA:*stack_a: %d", *stack_a);
-			//printf("*stack_b: %d\n\n", *stack_b);
-		}
-		i++;
-	}
+	arr2 = (int *)malloc(sizeof(int));
+	if (!arr2)
+		return ;
+	len2 = 0;
+	min = find_min(arr, len);
+	while (*arr != min)
+		rotate_a(arr, len);
+	push_b(arr2, arr, &len2, &len);
+	sort_4(arr, len);
+	push_a(arr, arr2, &len, &len2);
+	while (len--)
+		printf("%d ", *arr++);
+	free(arr2);
 }
