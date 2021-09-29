@@ -6,7 +6,7 @@
 /*   By: kchaniot <kchaniot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 15:12:08 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/09/29 15:12:09 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/09/29 17:20:27 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	sort_big(int *arr_a, int len_a)
 		++max_bits;
 	the_final_sort(arr_a, arr_b, len_a, max_bits);
 	free(arr_b);
-	free(arr_a);
 }
 
 void	the_final_sort(int *stack_a, int *stack_b, int len_a, int max_bits)

@@ -6,7 +6,7 @@
 /*   By: kchaniot <kchaniot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 13:33:19 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/09/29 15:53:02 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/09/29 17:18:56 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	main(int argc, char **argv)
 		choices(stack_a, length);
 		free(input);
 		free(sorted);
+		free(stack_a);
 	}
 	return (0);
 }

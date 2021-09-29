@@ -6,7 +6,7 @@
 /*   By: kchaniot <kchaniot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 15:58:06 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/09/28 22:41:42 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/09/29 17:17:42 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ static void	little_swap(int *a, int *b)
 int	*pass_arguments(int argc, char **argv)
 {
 	int		*initial_array;
-	int		i;
 
-	i = 0;
 	initial_array = (int *)malloc((argc - 1) * sizeof(int));
 	if (!initial_array)
 		return (0);
