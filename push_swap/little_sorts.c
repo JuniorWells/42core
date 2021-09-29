@@ -6,7 +6,7 @@
 /*   By: kchaniot <kchaniot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 16:33:25 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/09/29 16:30:24 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/09/29 18:14:47 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	sort_2(int *arr, int len)
 {
 	if (!is_sorted(arr, len))
 		swap_a(arr);
-	else
-		exit(-1);
+	//else
+	//	exit(-1);
 }
 
 void	sort_3(int *arr, int len)
@@ -40,7 +40,7 @@ void	sort_3(int *arr, int len)
 		rev_rotate_a(arr, len);
 	}
 	else
-		exit(-1);
+		return ;
 }
 
 void	sort_4(int *arr, int len)

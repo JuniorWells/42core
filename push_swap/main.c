@@ -6,7 +6,7 @@
 /*   By: kchaniot <kchaniot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 13:33:19 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/09/29 17:18:56 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/09/29 18:11:42 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ int	main(int argc, char **argv)
 		length = argc - 1;
 		input = pass_arguments(argc, argv);
 		if (is_sorted(input, length))
+		{
+			free(input);
 			exit(-1);
+		}
 		sorted = initial_sort(input, length);
 		stack_a = transmute(input, sorted, length);
 		choices(stack_a, length);
