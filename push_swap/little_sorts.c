@@ -6,7 +6,7 @@
 /*   By: kchaniot <kchaniot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 16:33:25 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/09/29 15:09:51 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/09/29 16:30:24 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,17 @@ void	sort_5(int *arr, int len)
 	len2 = 0;
 	min = find_min(arr, len);
 	while (*arr != min)
-		rotate_a(arr, len);
-	push_b(arr2, arr, &len2, &len);
-	sort_4(arr, len);
-	push_a(arr, arr2, &len, &len2);
-	while (len--)
-		printf("%d ", *arr++);
+	{
+		if (min <= 2)
+			rotate_a(arr, len);
+		else
+			rev_rotate_a(arr, len);
+	}
+	if (!is_sorted(arr, len))
+	{
+		push_b(arr2, arr, &len2, &len);
+		sort_4(arr, len);
+		push_a(arr, arr2, &len, &len2);
+	}
 	free(arr2);
 }

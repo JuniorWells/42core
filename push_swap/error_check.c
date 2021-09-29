@@ -6,7 +6,7 @@
 /*   By: kchaniot <kchaniot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 16:31:41 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/09/29 14:45:23 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/09/29 16:13:19 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,17 @@ int	has_duplicates(int argc, char **argv)
 	int	i;
 	int	j;
 
-	i = argc;
-	while (--i > 0 )
+	i = 1;
+	while (i < argc - 1)
 	{
-		j = i - 1;
-		while (j >= 0)
+		j = i + 1;
+		while (j < argc)
 		{
-			if (!ft_strncmp(argv[i], argv[j], ft_strlen(argv[i])))
+			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
 				return (1);
-			j--;
+			j++;
 		}
+		i++;
 	}
 	return (0);
 }
