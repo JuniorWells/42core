@@ -28,7 +28,7 @@ int	*pass_arguments(int argc, char **argv)
 	initial_array = (int *)malloc((argc - 1) * sizeof(int));
 	if (!initial_array)
 		return (0);
-	while (--argc > 0)
+	while (--argc >= 0)
 		initial_array[argc - 1] = ft_atoi(argv[argc]);
 	return (initial_array);
 }

@@ -14,10 +14,19 @@
 
 int	main(int argc, char **argv)
 {
+	if (argc == 1 || (argc == 2 && !(ft_strchr(argv[1], ' '))))
+		exit(-1);
 	if (argc == 2 && ft_strchr(argv[1], ' '))
 		arguments_transform(argv);
 	else
-		preparation(argc - 1, argv);
+	{
+		if (error_there(argc, argv))
+		{
+			write(1, "Error\n", 6);
+			exit(-1);
+		}
+		implement(argc, argv);
+	}
 	return (0);
 }
 

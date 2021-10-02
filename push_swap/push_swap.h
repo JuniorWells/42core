@@ -41,7 +41,7 @@ void	rotate_both(int *arr1, int *arr2, int len1, int len2);
 void	rev_rotate_a(int *arr, int len);
 void	rev_rotate_b(int *arr, int len);
 void	rev_rotate_both(int *arr1, int *arr2, int len1, int len2);
-void	preparation(int elements, char **argv);
+void	implement(int elements, char **argv);
 void	arguments_transform(char **argv);
 void	sort_2(int *arr, int len);
 void	sort_3(int *arr, int len);
