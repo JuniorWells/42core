@@ -14,29 +14,10 @@
 
 int	main(int argc, char **argv)
 {
-	int	*input;
-	int	*sorted;
-	int	*stack_a;
-	int	length;
-
-	if (error_there(argc, argv))
-		write(1, "Error\n", 6);
+	if (argc == 2 && ft_strchr(argv[1], ' '))
+		arguments_transform(argv);
 	else
-	{
-		length = argc - 1;
-		input = pass_arguments(argc, argv);
-		if (is_sorted(input, length))
-		{
-			free(input);
-			exit(-1);
-		}
-		sorted = initial_sort(input, length);
-		stack_a = transmute(input, sorted, length);
-		choices(stack_a, length);
-		free(input);
-		free(sorted);
-		free(stack_a);
-	}
+		preparation(argc - 1, argv);
 	return (0);
 }
 
@@ -52,20 +33,4 @@ void	choices(int *stack_a, int length)
 		sort_5(stack_a, length);
 	else
 		sort_big(stack_a, length);
-}
-
-int	find_min(int *arr, int len)
-{
-	int	min;
-	int	i;
-
-	i = 0;
-	min = arr[0];
-	while (i < len)
-	{
-		if (arr[i] < min)
-			min = arr[i];
-		i++;
-	}
-	return (min);
 }

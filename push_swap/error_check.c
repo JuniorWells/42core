@@ -61,13 +61,29 @@ int	more_than_digits(int argc, char **argv)
 
 int	error_there(int argc, char **argv)
 {
-	if (argc < 3)
-		exit(-1);
-	else if (has_duplicates(argc, argv))
+	// if ((argc == 2 && !(ft_strchr(argv[1], ' '))) || argc <= 1)
+	// 	exit(-1);
+	if (has_duplicates(argc, argv))
 		return (1);
 	else if (more_than_int(argc, argv))
 		return (1);
 	else if (more_than_digits(argc, argv))
 		return (1);
 	return (0);
+}
+
+int	find_min(int *arr, int len)
+{
+	int	min;
+	int	i;
+
+	i = 0;
+	min = arr[0];
+	while (i < len)
+	{
+		if (arr[i] < min)
+			min = arr[i];
+		i++;
+	}
+	return (min);
 }

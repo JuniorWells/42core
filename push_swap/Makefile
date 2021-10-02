@@ -7,7 +7,8 @@ LIB_PATH = ./libft
 LIBRARY = libft.a
 MAKE = make
 
-SRCS = $(addsuffix .c, main error_check pass_args rotates swaps_and_pushes rev_rotates little_sorts big_sort)
+SRCS = $(addsuffix .c, main error_check pass_args rotates swaps_and_pushes \
+rev_rotates little_sorts big_sort handle_the_input)
 OBJS = ${SRCS:.c=.o}
 
 all: $(NAME)

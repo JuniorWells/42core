@@ -16,8 +16,6 @@ void	sort_2(int *arr, int len)
 {
 	if (!is_sorted(arr, len))
 		swap_a(arr);
-	//else
-	//	exit(-1);
 }
 
 void	sort_3(int *arr, int len)
