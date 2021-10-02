@@ -6,7 +6,7 @@
 /*   By: kchaniot <kchaniot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 15:58:06 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/09/29 17:17:42 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/10/02 23:00:35 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	*pass_arguments(int argc, char **argv)
 	initial_array = (int *)malloc((argc - 1) * sizeof(int));
 	if (!initial_array)
 		return (0);
-	while (--argc >= 0)
+	while (--argc > 0)
 		initial_array[argc - 1] = ft_atoi(argv[argc]);
 	return (initial_array);
 }
@@ -83,4 +83,32 @@ int	*transmute(int *unsorted, int *sorted, int len)
 		++i;
 	}
 	return (new);
+}
+
+int		*handle_input_variable(char **argv, int *len)
+{
+	char	**temp;
+	int		*input;
+	int		i;
+
+	temp = ft_split(argv[1], ' ');
+	while (temp[*len])
+		++(*len);
+	input = malloc(*len * sizeof(int));
+	if (!input)
+		return (0);
+	i = 0;
+	while (i < *len)
+	{
+		if (!(error_there(*len, temp)))
+			input[i] = ft_atoi(temp[i]);
+		else
+		{
+			free(input);
+			free_and_out(*len, temp);
+		}
+		i++;
+	}
+	free_and_in(*len, temp);
+	return (input);
 }

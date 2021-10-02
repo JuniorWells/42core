@@ -6,7 +6,7 @@
 /*   By: kchaniot <kchaniot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 15:12:08 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/09/29 17:20:27 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/10/02 23:02:03 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,11 @@ void	the_final_sort(int *stack_a, int *stack_b, int len_a, int max_bits)
 			push_a(stack_a, stack_b, &len_a, &len_b);
 		i++;
 	}
+}
+
+void	free_and_in(int len, char **s)
+{
+	while (len-- >=0)
+		free(s[len]);
+	free(s);
 }
