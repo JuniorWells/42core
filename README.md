@@ -7,4 +7,5 @@ May 2021 ~
 1. Libft: Create a static library, consisted of useful basic functions.
 2. get_next_line: Code a function, which returns a line read from a file descriptor.
 3. born2beRoot: Set up a server inside a Virtual Machine.
-4. ft_printf: recreating a much simpler version of printf (no bonus)
+4. ft_printf: Recreating a much simpler version of printf (no bonus).
+5. push_swap: An intro to algorithms & complexity. Sorting data with restricted instructions.
