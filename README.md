@@ -9,3 +9,4 @@ May 2021 ~
 3. born2beRoot: Set up a server inside a Virtual Machine.
 4. ft_printf: Recreating a much simpler version of printf (no bonus).
 5. push_swap: An intro to algorithms & complexity. Sorting data with restricted instructions.
+6. pipex: Recreating a simpler version of pipe command (|).
