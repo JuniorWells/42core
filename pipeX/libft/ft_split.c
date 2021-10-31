@@ -3,20 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kchaniot <kchaniot@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: kchaniot <kchaniot@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 14:49:00 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/05/31 14:49:01 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/10/26 15:41:54 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/*
-*	Allocates (with malloc) and returns an array
-*	of strings obtained by splitting ’s’ using the
-*	character ’c’ as a delimiter.  The array must be
-*	ended by a NULL pointer.
-*/
 
 static	char	**ft_free(char **str, int len)
 {

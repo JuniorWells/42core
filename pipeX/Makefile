@@ -5,7 +5,7 @@ RM = rm -f
 LIB_PATH = ./libft
 LIBRARY = libft.a
 MAKE = make
-SRC = $(addsuffix .c, main getters cmd_list)
+SRC = $(addsuffix .c, main getters cmd_list extra errors)
 OBJ = $(SRC:c=o)
 
 all: $(NAME)
@@ -13,12 +13,8 @@ all: $(NAME)
 $(LIBRARY):
 	$(MAKE) -C $(LIB_PATH)
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -L $(LIB_PATH) -lft -o $@ $^
-	$(RM) $^
-
-%.o: %.c 
-	$(CC) $(CFLAGS) -c $< -o $@
+$(NAME): $(OBJ) $(LIBRARY)
+	$(CC) $(CFLAGS) -o $@ $(OBJ) -L $(LIB_PATH) -lft
 
 clean:
 	$(RM) $(OBJ)

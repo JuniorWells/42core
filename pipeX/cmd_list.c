@@ -6,7 +6,7 @@
 /*   By: kchaniot <kchaniot@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 14:42:15 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/10/26 15:18:41 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/10/30 17:26:11 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_command	**create_list(int elem, char **argv, char **env, t_command **lst)
 	t_command	*temp;
 
 	i = 2;
+	if (!ft_strncmp(argv[1], HERE_DOC, ft_strlen(HERE_DOC)))
+		i = 3;
 	while (elem--)
 	{
 		temp = malloc(sizeof(t_command));
