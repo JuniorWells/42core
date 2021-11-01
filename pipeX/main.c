@@ -6,7 +6,7 @@
 /*   By: kchaniot <kchaniot@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 15:26:50 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/11/01 16:24:52 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/11/01 16:43:20 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	normality(int argc, char **argv, char **env)
 
 	elements = argc - 3;
 	lst = malloc(sizeof(t_command *));
+	if (!lst)
+		return (0);
 	lst = create_list(elements, argv, env, lst);
 	ffds[0] = get_input_fd(argv[1]);
 	ffds[1] = get_output_fd(argv[argc - 1]);
@@ -62,6 +64,8 @@ void	limiter_case(int argc, char **argv, char **env)
 	limiter = argv[2];
 	pwd = get_pwd_path(env);
 	lst = malloc(sizeof(t_command *));
+	if (!lst)
+		return (0);
 	lst = create_list(argc - 4, argv, env, lst);
 	fdf[0] = STDIN_FILENO;
 	fdf[1] = append_out(argv[argc - 1], pwd);
