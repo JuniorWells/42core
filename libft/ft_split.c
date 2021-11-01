@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kchaniot <kchaniot@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: kchaniot <kchaniot@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 14:49:00 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/05/31 14:49:01 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/11/01 18:50:02 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static	char	*ft_malloc_str(size_t len)
 {
 	char	*ret;
 
-	ret = (char *)malloc(sizeof(char) * len + 1);
+	ret = (char *)malloc(sizeof(char) * (len + 1));
 	if (!ret)
 		return (0);
 	return (ret);
@@ -65,7 +65,7 @@ char	**ft_split(char const *s, char c)
 	size_t	i;
 	size_t	temp_len;
 
-	ret = (char **)malloc(sizeof(char *) * get_words(s, c) + 1);
+	ret = malloc(sizeof(char *) * get_words(s, c) + 1);
 	if (!ret)
 		ft_free(ret, get_words(s, c) + 1);
 	i = 0;

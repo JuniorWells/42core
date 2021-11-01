@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kchaniot <kchaniot@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: kchaniot <kchaniot@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 16:32:48 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/06/03 13:14:23 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/11/01 18:43:58 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 ** Finally, the pointer to the list must be set to
 ** NULL.
 */
-void	ft_lstclear(t_list **lst, void	(*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*temp;
 
