@@ -6,7 +6,7 @@
 /*   By: kchaniot <kchaniot@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 14:42:20 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/10/31 20:01:45 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/11/01 16:23:40 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	get_input_fd(char *file)
 	{
 		write(STDERR_FILENO, file, ft_strlen(file));
 		write(STDERR_FILENO, ": No such file or directory\n", 29);
+		exit(-1);
 	}
 	return (fd_in);
 }
@@ -31,11 +32,6 @@ int	get_output_fd(char *file)
 {
 	int	fd_out;
 
-	if (*file == '1')
-	{
-		fd_out = STDOUT_FILENO;
-		return (fd_out);
-	}
 	fd_out = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	if (fd_out == -1)
 	{

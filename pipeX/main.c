@@ -6,7 +6,7 @@
 /*   By: kchaniot <kchaniot@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 15:26:50 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/10/31 20:08:36 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/11/01 16:24:52 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ void	normality(int argc, char **argv, char **env)
 	ffds[1] = get_output_fd(argv[argc - 1]);
 	dup2(ffds[0], STDIN_FILENO);
 	dup2(ffds[1], STDOUT_FILENO);
-	piping(*lst, env, ffds[0]);
+	piping(*lst, env);
 	*lst = (*lst)->next;
 	while ((*lst)->next)
 	{
-		piping(*lst, env, ffds[0]);
+		piping(*lst, env);
 		*lst = (*lst)->next;
 	}
 	execve((*lst)->path, (*lst)->cmd_args, env);
@@ -67,18 +67,18 @@ void	limiter_case(int argc, char **argv, char **env)
 	fdf[1] = append_out(argv[argc - 1], pwd);
 	dup2(fdf[1], STDOUT_FILENO);
 	extra(limiter);
-	piping(*lst, env, 1);
+	piping(*lst, env);
 	*lst = (*lst)->next;
 	while ((*lst)->next)
 	{
-		piping(*lst, env, 1);
+		piping(*lst, env);
 		*lst = (*lst)->next;
 	}
 	execve((*lst)->path, (*lst)->cmd_args, env);
 	exec_error(*lst);
 }
 
-void	piping(t_command *cmd, char **env, int input_fd)
+void	piping(t_command *cmd, char **env)
 {
 	pid_t	pid;
 	int		fd[2];
@@ -91,10 +91,7 @@ void	piping(t_command *cmd, char **env, int input_fd)
 	{
 		close(fd[0]);
 		dup2(fd[1], STDOUT_FILENO);
-		if (input_fd == 0)
-			exit(-1);
-		else
-			execve(cmd->path, cmd->cmd_args, env);
+		execve(cmd->path, cmd->cmd_args, env);
 		exec_error(cmd);
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: kchaniot <kchaniot@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 12:59:09 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/10/31 19:52:27 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/11/01 16:25:14 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void		pipe_error_check(int p_fd);
 void		pid_error_check(int pid);
 void		error_here_doc(void);
 void		child_extra(int *fd, char *line, char *limiter);
-void		piping(t_command *cmd, char **env, int input_fd);
+void		piping(t_command *cmd, char **env);
 void		ft_lst_add_back(t_command **lst, t_command *new);
 void		normality(int argc, char **argv, char **env);
 void		limiter_case(int argc, char **argv, char **env);
