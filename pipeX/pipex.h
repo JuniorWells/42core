@@ -6,7 +6,7 @@
 /*   By: kchaniot <kchaniot@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 12:59:09 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/11/01 16:25:14 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/11/03 10:41:08 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ int			get_heredoc_fd(char *file, char *path);
 int			append_out(char *file, char *path);
 char		*get_path(char *cmd_name, char **env);
 char		*get_pwd_path(char **env);
+char		*check_path(char **poss_paths, char *cmd, char *path);
 void		input_error(void);
 void		extra(char *limiter);
-void		exec_error(t_command *cmd);
 void		pipe_error_check(int p_fd);
 void		pid_error_check(int pid);
 void		error_here_doc(void);

@@ -6,7 +6,7 @@
 /*   By: kchaniot <kchaniot@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 01:00:18 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/10/31 19:39:38 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/11/03 10:02:56 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,15 @@ int	append_out(char *file, char *path)
 
 	fd_out = 1;
 	if (!access(path, F_OK))
+	{
 		fd_out = open(file, O_RDWR | O_CREAT | O_APPEND, 0777);
+		if (fd_out < 0)
+		{
+			write(STDERR_FILENO, "File read failed\n", 18);
+			write(STDERR_FILENO, "Maybe check permissions\n", 25);
+			exit(2);
+		}
+	}
 	return (fd_out);
 }
 

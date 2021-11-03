@@ -6,7 +6,7 @@
 /*   By: kchaniot <kchaniot@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 14:42:20 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/11/01 16:44:46 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/11/03 10:39:25 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,31 @@ char	*get_path(char *cmd_name, char **env)
 		i++;
 	}
 	poss_paths = ft_split(path, ':');
+	path = check_path(poss_paths, cmd, path);
+	free(cmd);
+	return (path);
+}
+
+char	*check_path(char **poss_paths, char *cmd, char *path)
+{
 	while (*poss_paths)
 	{
 		path = ft_strjoin(*poss_paths, cmd);
 		if (!access(path, F_OK) && !access(path, X_OK))
 			break ;
 		else
+		{
+			ft_bzero(path, ft_strlen(path));
 			free(path);
+		}
 		poss_paths++;
 	}
-	free(cmd);
-	return (path);
+	if (!(*path))
+	{
+		write(STDERR_FILENO, (cmd + 1), ft_strlen(cmd + 1));
+		write(STDERR_FILENO, ": command not found\n", 21);
+		exit(EXIT_FAILURE);
+	}
+	else
+		return (path);
 }

@@ -6,7 +6,7 @@
 /*   By: kchaniot <kchaniot@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 15:26:50 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/11/01 16:43:20 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/11/03 10:43:32 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char **argv, char **env)
 	}
 	else
 		normality(argc, argv, env);
-	return (1);
+	return (2);
 }
 
 void	normality(int argc, char **argv, char **env)
@@ -37,7 +37,7 @@ void	normality(int argc, char **argv, char **env)
 	elements = argc - 3;
 	lst = malloc(sizeof(t_command *));
 	if (!lst)
-		return (0);
+		return ;
 	lst = create_list(elements, argv, env, lst);
 	ffds[0] = get_input_fd(argv[1]);
 	ffds[1] = get_output_fd(argv[argc - 1]);
@@ -51,7 +51,7 @@ void	normality(int argc, char **argv, char **env)
 		*lst = (*lst)->next;
 	}
 	execve((*lst)->path, (*lst)->cmd_args, env);
-	exec_error(*lst);
+	exit(127);
 }
 
 void	limiter_case(int argc, char **argv, char **env)
@@ -65,7 +65,7 @@ void	limiter_case(int argc, char **argv, char **env)
 	pwd = get_pwd_path(env);
 	lst = malloc(sizeof(t_command *));
 	if (!lst)
-		return (0);
+		return ;
 	lst = create_list(argc - 4, argv, env, lst);
 	fdf[0] = STDIN_FILENO;
 	fdf[1] = append_out(argv[argc - 1], pwd);
@@ -79,7 +79,7 @@ void	limiter_case(int argc, char **argv, char **env)
 		*lst = (*lst)->next;
 	}
 	execve((*lst)->path, (*lst)->cmd_args, env);
-	exec_error(*lst);
+	exit(127);
 }
 
 void	piping(t_command *cmd, char **env)
@@ -96,7 +96,7 @@ void	piping(t_command *cmd, char **env)
 		close(fd[0]);
 		dup2(fd[1], STDOUT_FILENO);
 		execve(cmd->path, cmd->cmd_args, env);
-		exec_error(cmd);
+		exit(127);
 	}
 	else
 	{
