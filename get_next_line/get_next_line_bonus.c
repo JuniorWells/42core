@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kchaniot <kchaniot@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: kchaniot <kchaniot@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 19:12:12 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/07/19 19:16:34 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/11/03 10:50:11 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,9 @@ char	*get_next_line(int fd)
 		if (*box[fd])
 			line = freedom(line, box[fd]);
 		bytes = read(fd, box[fd], BUFFER_SIZE);
-		box[fd][bytes] = '\0';
 		if (check_bytes(bytes, line))
 			return (NULL);
+		box[fd][bytes] = '\0';
 		if (bytes < BUFFER_SIZE && !ft_strchr(box[fd], '\n'))
 		{
 			line = freedom(line, box[fd]);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kchaniot <kchaniot@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: kchaniot <kchaniot@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 19:12:12 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/07/16 19:12:13 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/11/03 10:49:22 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,12 @@ char	*get_next_line(int fd)
 		if (*box)
 			line = freedom(line, box);
 		bytes = read(fd, box, BUFFER_SIZE);
-		box[bytes] = '\0';
 		if (bytes <= 0 && !(*line))
 		{
 			free(line);
 			return (NULL);
 		}
+		box[bytes] = '\0';
 		if (bytes < BUFFER_SIZE && !ft_strchr(box, '\n'))
 		{
 			line = freedom(line, box);
