@@ -58,6 +58,7 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	line = (char *)ft_calloc(1, sizeof(*line));
+	while (!(ft_strchr(box, '\n')))
 	{
 		if (*box)
 			line = freedom(line, box);
