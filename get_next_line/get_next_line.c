@@ -6,7 +6,7 @@
 /*   By: kchaniot <kchaniot@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 19:12:12 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/11/03 10:49:22 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/12/14 12:33:59 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	line = (char *)ft_calloc(1, sizeof(*line));
-	while (!(ft_strchr(box, '\n')))
 	{
 		if (*box)
 			line = freedom(line, box);

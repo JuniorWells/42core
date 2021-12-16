@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kchaniot <kchaniot@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: kchaniot <kchaniot@students.42wolfsburg    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 19:12:02 by kchaniot          #+#    #+#             */
-/*   Updated: 2021/07/16 19:12:22 by kchaniot         ###   ########.fr       */
+/*   Updated: 2021/12/14 12:29:01 by kchaniot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 14
+#  define BUFFER_SIZE 900
 # endif
 
 # include <unistd.h>
