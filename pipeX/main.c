@@ -87,7 +87,6 @@ void	piping(t_command *cmd, char **env)
 	pid_t	pid;
 	int		fd[2];
 
-	pipe(fd);
 	pipe_error_check(pipe(fd));
 	pid = fork();
 	pid_error_check(pid);
